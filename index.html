@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richmond Weather Dashboard</title>
+    <link hrel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"crossorigin="anonymous">  
+    <link rel="stylesheet" href="./asset/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1 w-100 text-center">Weather Dashboard</span>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-4 bg-light">
+                <p class="search-header my-1">Search for a city</p>
+                <div class="input-group mb-3">
+                    <input id="city-input" type="text" class="form-control" placeholder="Enter-city- name" aria-label="Enter city name">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <button class="btn btn-primary mb-3" type="button" id="clear-history">Clear history</button>
+                <form id="history"></form>
+            </div>
+            <div class="col-8">
+                <div class="row mr-0">
+                    <div class="col-12 border border-dark m-3 rounded">
+                        <div class="row">
+                            <div class="col-12">
+                                <span id="city-name" class="city-name align-middle"></span>
+                                <!-- <img id="current-pic" src="placeholder" alt=""> -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p id="temperature"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p id="humidity"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p id="wind-speed"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex">
+                                <p id="UV-index"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>5-Day Forecast</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <style>
+        body {
+          background-image: url('rainbow-rise-henson-930px[1].jpg');
+        }
+    </style> -->
+    <!-- <header id="page_header" class="container-fluid  pt-3 pb-3 text-center">
+        <h1 class="text-white">Weather Dashboard</h1>
+    </header>
+    <div class="container-fluid row">
+        <section class="main-content">
+            <div class="col-3 left_div justify-content-center pt-3">
+                    <div class="search_div mb-4">
+                    <h4 class="justify-content-center pt-2 pl-3">Search by city: </h4>
+                        <form class="form-inline my-2 my-lg-0 mt-3 ml-3">
+                            <input class="form-control mr-sm-2 float-left" type="search" placeholder="Search" id= "search_bar" aria-label="Search">
+                            <button id="searchbtn" class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fast fa-search"></i></button>
+                        </form>
+                    </div>
+                    <h4 class="justify-content-center pt-2 pl-3">Searched cities: </h4>
+                    <div class="container my-3 col-12" id="searched_cities_container"></div>
+
+            </div>
+            
+            <div class="bg-light p-3" id="today_weather">
+                    
+                        <div class="card-main">
+                            <h2 class="justify-content-center text-dark" id="name_of_city">City Name</h2> 
+                            <div class="col-6">
+                                <p id="today_temp">Temperature:</p>
+                                <p id="today_humidity">Humidity:</p>
+                                <p id="today_wind_speed">Wind Speed:</p>
+                                <p id="tody_UV_index">UV index:</p>
+                            </div>
+                        </div> 
+            </div>  
+        </section>
+
+            <div class="five-day-div bg-light p-3 m-3 w-100"> -->
+                <!-- <div class="bg-light">
+                    <h5 class="forecast">5-Day Forecast:</h5>
+                </div>
+         
+                <div class="wrap justify-content-center">
+                    <div id="day1_wrap" class="card-body mx-2 my-2">
+                        <h6 id="day1_date">Date</h6>
+                        <i id="day1_icon">i</i>
+                        <p id="day1_temp">Temp:</p>
+                        <p id="day1_humidity">Humidity</p>
+                        
+                    </div>
+                
+                    <div id="day2_wrap" class="card-body mx-2 my-2">
+                        <h6 id="day2_date">Date</h6>
+                        <i id="day2_icon">i</i>
+                        <p id="day2_temp">Temp:</p>
+                        <p id="day2_humidity">Humidity:</p>
+                        
+                    </div>
+                
+                    <div id="day3_wrap" class="card-body mx-2 my-2">
+                        <h6 id="day3_date">Date</h6>
+                        <i id="day3_icon">i</i>
+                        <p id="day3_temp">Temp:</p>
+                        <p id="day3_humidity">Humidity:</p>
+                    </div>
+                
+                    <div id="day4_wrap" class="card-body mx-2 my-2">
+                        <h6 id="day4_date">Date</h6>
+                        <i id="day4_icon">i</i>
+                        <p id="day4_temp">Temp:</p>
+                        <p id="day4_humidity">Humidity</p>
+                    </div>
+                
+                    <div id="day5_wrap" class="card-body mx-2 my-2">
+                        <h6 id="day5_date">Date</h6>
+                        <i id="day5_icon">i</i>
+                        <p id="day5_temp">Temp:</p>
+                        <p id="day5_humidity">Humidity</p>
+                    </div>
+                </div>  -->
+            
+        
+
+    <script src="./asset/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
